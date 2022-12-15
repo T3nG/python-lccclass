@@ -1,0 +1,17 @@
+<!--
+http://mahaljsp.asuscomm.com/index.php/2020/12/20/tf%e5%ae%89%e8%a3%9d/
+CUDA: Compute Unified Device Architecture (演算設備統一架構), 由 nVidia 開發
+TensorFlow: 深度學習框架, 另外一個常見的框架為 PyTorch
+Python -> TensorFlow -> CUDA(cudnn) -> CUDA Toolkit
+TensorFlow 就好比一台強大的計算機, 可以計算矩陣, 微積分, 而且可以決定要使用 cpu 或 gpu 計算
+如果 TensorFlow 決定用 GPU 計算, 就把公式交給 CUDA 執行, CUDA 再啟動 GPU , 所以 CUDA 好比是 GPU 的驅動程式
+CUDA有兩個部分 CUDA Toolkit 比較底層的, cudnn 函數庫
+1. 安裝 CUDA Toolkit: https://developer.nvidia.com/cuda-toolkit-archive
+    CUDA Toolkit 11.8
+    win11 x86_x64 local
+2. 安裝 cudnn: https://developer.nvidia.com/cudnn
+    需註冊成為會員才可下載, 版本 cuDNN v8.7.0 .... for CUDA 11.x  (2022.11.28)
+    windows (.zip)
+    將內容解壓縮到 Toolkit 安裝好的目錄(.../v11.8)
+
+-->

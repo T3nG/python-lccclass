@@ -1,0 +1,54 @@
+<!--
+吳明學 -- Thomas
+eMail：mahaljsp@gmail.com
+
+環境架設 - Python, Pycharm, Cuda
+1. 移除舊版本 - spider/anaconda, python 3.9及以上的版本
+	django - Python 3.11
+	a. 業界最忌緯追求最新的版本
+	b. Cuda 只適用於 python 3.8，最穩的是 3.7.9
+2. 若 Django以 3.11最穩的話，就要獨立一台電腦出來
+	Django 在 3.7.9有時二三天就要重新開機一次
+移除
+1. 移除有nVidia CUDA的程式
+2. 移除 Anaconda/spider/pycharm
+	spider支援 pyqt(圖形介面)有點問題
+3. 移除 python3.9及以上的版本
+4. 移除 Python Lanucher
+
+安裝Python 3.8
+1. 安裝時，add python 3.8 to path 一定要打勾。若忘了勾，請移除重裝
+2. Disable path length limit 一定要按，破解 path 只能有 4096 個字的限制
+3. 在dos 下測試 : python --version
+
+安裝 Pycharm - Netbeans(Java)/Android Studio(手機)/Intellij Idea(Kotlin)，都是由jet brain所開發
+1.https://www.jetbrains.com/pycharm/
+2. Professional : 要錢，請不要下載。請下載 Community免費的
+3. 2022.2.3有 bug,  不可以安裝。請安裝 2022.2.4
+4. 安裝時，四個選項都打勾
+5. 安裝後，請按 reboot now, 然後重新開機
+
+硬体需求 - 原價屋
+1. CPU : i7 第七代以上(目前第12代)
+2. Ram : 32G以上
+3. 顯卡 : nVidia 3060以上，不可以使用 AMD
+
+替代方案 : colab
+
+第一次設定Pycharm
+1. 以系統管理員開啟 PowerShell : 執行 set-ExecutionPolicy remotesigned，然後按 a 或 y
+2. 開啟 Pycharm, New Project :
+	a. 第一個 Location，選 c碟或d碟，建立 python目錄，選python，
+		再建立20221128(注意，專案名稱不可以使用中文)
+		整個路徑為 D:\python\20221128，第二個 Location會自動加 venv => D:\python\20221128\venv
+3. Download pre-build share index千萬別按，一按下去變成簡体中文，完全看不懂(Project => 項目)
+4. 修改成白底黑字 :
+	File/Settings/Appearance/Theme/Intellij Light
+5. 放大字体
+    File/Settings/Editor/General/Change Font Size with Ctrl+Mouse wheel	in 打勾
+    Ctrl+滑鼠滾輪即可放大字体
+第一支程式
+1. 專案按右鍵 /new Python File : 測試.py, 可以使用中文, 不需打 ".py"
+2. 第一次執行 : 右鍵/run 測試.py
+3. 第二次執行 : Shift+F10(快速鍵)
+-->

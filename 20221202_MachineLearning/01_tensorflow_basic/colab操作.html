@@ -1,0 +1,27 @@
+<!--
+使用 colab
+1. https://colab.research.google.com/  建立新筆記本
+2. 更改檔名 : 測試.ipynb
+3. 啟用GPU : 執行階段/變更執行階段類型 : 硬体加速 :GPU
+   免費使用，每天只能執行 6小時左右(不一定)
+   Ram : 12G
+   HD : 雲端硬碟
+載入外部檔案或圖片
+1. 將圖片置於雲端硬碟的 pictures內
+2. 雲端硬碟在colab裏的名稱為 /MyDrive(Google 規定死的)
+3. 在 Colab裏，使用 drive.mount('/data') 將 MyDrive掛載進來，'data'可以自已命名
+   在使用drive之前，需 from google.colab import drive
+4. 此時 pictures 的完整路徑為 /data/MyDrive/pictures
+Colab 使用 Opencv顯圖
+    from google.colab.patches import cv2_imshow
+    cv2_imshow(img)
+Colab 使用外部 SDK
+1. 將 sdk/Mahal.py copy 到雲端硬碟的 sdk 目錄
+2. 在 colab中斷連線
+3. sys.path為 import 要搜尋的路徑
+drive.mount('/data')
+sdk_path="/data/MyDrive/sdk/"
+pic_path="/data/MyDrive/picture"
+import sys
+sys.path.append(sdk_path)
+-->

@@ -1,0 +1,24 @@
+<!--
+CUDA : Compute Unified Device Architecture(演算設備統一架構)，由 nVidia所開發
+TensorFlow : 深度學習框架，另外一個常見的框架為 PyTorch
+Python => TensorFlow => CUDA(cudnn => CUDA Toolkit)
+
+TensorFlow 就好比一台強大的計算機(一支套件)，可以計算矩陣、微積分，而且可以決定要使用 CPU 或 GPU 計算。
+如果TensorFlow 決定用GPU計算，就把公式交給 CUDA 執行，CUDA再啟動 GPU。所以 CUDA好比是GPU的驅動程式。
+
+安裝 CUDA
+CUDA有二個部份 - CUDA Toolkit, 另一個是 cudnn
+安裝 CUDA Toolkit :
+1. https://developer.nvidia.com/cuda-toolkit-archive
+2. 選擇 : CUDA 11.8
+3. 安裝前，一定要關掉華碩監控GPU的程式
+4. 安裝好了，路徑為 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8
+
+安裝 cudnn
+1. https://developer.nvidia.com/cudnn ，download cudnn, Download cuDNN v8.7.0 (November 28rd, 2022), for CUDA 11.x,
+    Local Installer for Windows (Zip)，要先註冊成為會員
+2. 解開 .zip檔案, 將裏面的三個目錄 copy 到 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8
+
+開啟上課的專案
+1. 將上課的專案.zip 檔解開/再於 pycharm File/new Project, 選擇 20221128的目錄
+-->
