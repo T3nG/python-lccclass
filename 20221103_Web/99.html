@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <table border="1" cellpadding="0" cellspacing="0">
+        <script language="JavaScript">
+            // 99乘法表
+            for(i=1;i<=9;i++){
+                document.write("<tr>");
+                for(j=1;j<=9;j++){
+                    // document.write 如同 print, echo
+                    document.write("<td width='50'>");
+                    // document.write(i*j);
+                    // 底下展示格式化列印的方法
+                    a=`${i}*${j}=${i*j}`
+                    document.write(a);
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+                // 有的瀏覽器不寫結束tag也可以呈現, 會自動偵測應該要有結束tag的地方自動加, 但有的不行, 相容性問題
+            }
+        </script>
+        </table>
+    </body>
+</html>

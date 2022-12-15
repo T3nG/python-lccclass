@@ -1,0 +1,43 @@
+<html>
+    <style>
+        div{
+            background-color: #ffff00;
+            text-align: center;
+
+            // div大小設定;
+            width: 100px;   // 50% 或用百分比;
+            height: 100px;  // 50% 或用百分比;
+
+            position: fixed; // 固著在畫面內;
+            // position: absolute; // 以視窗的絕對位置;
+            // position: relative;
+
+            // top: 100px;
+            // left: 100px;
+            // 固定在右下角, 討人厭的廣告的寫法;
+            // right: 10px;
+            // bottom: 10px;
+
+            // 以左上角點為中心的50%;
+            top: 50%;
+            left: 50%;
+            // 讓方塊在正中間的做法;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <script>
+            for (i=0;i<100;i++)
+                document.write("<p>hello</p>");
+        </script>
+        <div>
+            <p>第一段</p>
+            <p>第二段</p>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!--
+1. DNS
+    Domain Name Service         網域名稱伺服器, 把IP轉成網域 xxx.com.tw(固定IP才能使用)
+    Dynamic Domain Name Service 浮動IP的網域名稱伺服器
+
+    https://cosmowhale.asuscomm.com:8443
+2. IP分享器
+    asus: 外部網路/ddns/主機名稱: 獨一無二的帳號
+
+    asus/d-link/tp-link/adsl/或沒有adsl
+        https://www.noip.com/
+        emaol/password/xxx.ddns.net
+        收mail進行驗證
+        sign in 登入 dynamicDNS/NO-IP Hostnames
+        Create Hostname
+
+3.
+
+4. 沒有adsl/ip分享器 --DUC
+    dynamic update client
+
+5. NAT Loopback 讓本機可以查看架在本機的伺服器網頁
+
+6. C:\Windows\System32\drivers\etc , 開啟host檔案
+
+解決網頁呈現的格式怪怪的問題
+7. httpd-vhost.conf
+    ServerName localhost
+    ServerAlias localhost
+        localhost 改為自己的網域 cosmowhale.asuscomm.com
+
+8. 開啟 workbench 進入 wordpress 資料庫 / wp-options
+    siteurl http://localhost
+    home http://localhost
+    改為自己的網域 cosmowhale.asuscomm.com
+        Apply
+-->

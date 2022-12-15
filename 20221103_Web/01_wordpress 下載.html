@@ -1,0 +1,73 @@
+<!--
+1. 下載 wordpress , 搜尋 wordpres download
+2. 解壓縮內容至 e:/server
+3. 開啟 httpd.conf (wampserver64 開啟後, 綠燈左鍵/apache)
+        DocumentRoot
+        路徑改變 web -> wordpress
+   開啟 httpd-vhost.conf
+        DocumentRoot
+        路徑改變 web -> wordpress
+4. restart all services
+5. 開啟mysql workbench
+6. 選取localhost
+7. 建立新schema
+    Name: wordpress
+    Charset: utf8 / utf8_unicode_ci
+8. 瀏覽器輸入 localhost
+    因為在httpd.conf / httpd-vhost.conf 有改過了
+    所以會出現wordpress畫面
+
+    1. 資料庫 wordpress
+    2. 使用者 mysql 的帳號
+    3. 密碼 mysql 的密碼
+    網站設定
+    1. 網站標題: 需要獨一無二
+    2. 使用者名稱: 登入網站用的
+    3. 密碼: 登入網站用的
+    4. 不要阻止搜尋引擎搜索
+    外觀-佈景主題-安裝佈景主題-推薦 ribosome
+    其他設定參閱
+    http://mahaljsp.asuscomm.com/index.php/2016/10/28/wordpress_setup/
+
+    資料庫備份
+    將 C:\Program Files\MySQL\MySQL Server 8.0\bin
+    新增至系統變數path
+        檢查是否成功
+        cmd -> mysql --version
+
+        建立備份資料夾
+        C:\Users\User\OneDrive\圖片\serverbackup
+
+        cd c:\Users\User\OneDrive\圖片\serverbackup
+        mysqldump -u dengfixanros -p --routines wordpress > wordpress20221101.sql
+
+        還原
+        1. 使用workbench建立wordpress空資料庫 (new schema)
+        2. cd c:\Users\User\OneDrive\圖片\serverbackup
+        mysql -u dengfixanros -p wordpress < wordpress_20221020.sql
+
+為了避免一直改 httpd.conf / httpd-vhost.conf
+把 web 放到wordpress底下
+
+老師就業的公司(立向)使用
+mapbox
+
+
+歡迎使用 WordPress。進行安裝時，安裝人員必須能夠提供安裝程式下列資訊。
+
+資料庫名稱
+資料庫使用者名稱
+資料庫密碼
+資料庫主機位址
+資料表前置詞 (用於在單一資料庫中安裝多個 WordPress)
+這些資訊會用於建立 wp-config.php 檔案。
+如果因故導致無法自動建立檔案，請不必擔心，
+這時只需要將資料庫相關資訊填入網站組態檔案中即可。
+安裝人員也可以在文字編輯器中開啟 wp-config-sample.php
+並填寫必要的資訊，然後將檔案另存為 wp-config.php。
+如需進一步的說明，請閱讀〈wp-config.php〉技術支援文章。
+
+在多數的狀況中，這些資訊應由網站主機服務商提供。
+如果安裝人員並未獲得這些資訊，請在繼續安裝前先行聯絡廠商。
+當一切準備就緒後...
+-->

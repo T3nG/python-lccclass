@@ -1,0 +1,49 @@
+<html>
+    <style>
+        p:hover{  // 註解方法需加分號;
+            background-color:#ffff00;
+        }
+        /*
+        p{
+            background-color:#ffff00;
+        }
+        */
+        .test{
+            background-color:#00ff00;
+        }
+        #tx{
+            background-color:#0000ff;
+        }
+
+        /*
+        選擇器1{
+            屬性:值;
+            屬性:值;
+            ..
+        }
+        選擇器2{
+            屬性:值;
+            屬性:值;
+            ..
+        }
+
+        選擇器有三種
+            1.tag   => p{}      套用所有 p tag
+            2.class => .test{}  套用時, 加入屬性 class="test"    => <p class="test">...</P>
+            3.#     => #tx{}    套用時, 加入屬性 id="tx"         => <p id="tx">...</p>>
+                指定id不可重複, 只適用單一元件
+                優先順序 id>class>tag
+            4. p:hover  => tag:hover  鼠標移至其上時顯示, 虛擬選擇器
+        */
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <p>第一段</p>
+        <p class="test">第二段</p>
+        <p id="tx">第三段</p>
+    </body>
+</html>
+
