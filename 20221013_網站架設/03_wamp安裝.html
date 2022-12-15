@@ -1,0 +1,65 @@
+<!--
+1. Web Server 安裝及設定
+2. Wordpress 安裝
+3. 資料備份
+4. 網路概論
+5. DNS/NO-IP
+
+
+web server 種類
+作業系統    網頁伺服器      資料庫    網頁程式
+Linux     Apache/nginx   MySQL   php/jsp/Django  : LAMP (wordpress 使用php)
+Win10     IIS            MySQL   Asp.net : 台灣政府單位常用, 一般有技術的公司絕對不會使用
+Win10     Apache         MySQL   php/jsp  : WAMP
+
+XAMPP 也是Win10架設, 但是爛爛的, 不太穩定, 雖然設定畫面較漂亮
+
+1. 移除舊版WAMP/XAMPP
+2. 安裝chrome/notepad++
+3. 下載WAMP
+    a. mysql 選擇8.0.27
+    b. browser : Chrome
+        C:\Program Files\Google\Chrome\Application\chrome.exe
+    c. text editor : notepad++
+        E:\Program Files\Notepad++\notepad++.exe
+
+For some explanations on how Wampserver works
+see the file: wamp(64)\instructions_for_use.pdf
+For the use of MariaDB and MySQL
+See the file : wamp(64)\mariadb_mysql.txt
+Wampmanager icon works with
+Left-Click and Right-Click
+
+4. 設定資料庫
+    正常安裝 MySQL 8.0.30
+    WAMP: MySQL 8.0.27 : 舊版, 跟8.0.30差很大
+        為了使用新版的MySQL, 把wamp裝的舊版MySQL port 改掉
+        將wamp mysql 8.0.27的port改成3308
+            點擊桌面的wampserver64開啟
+            右下角的圖示 左鍵/MySQL/my.ini
+            將三個port改成3308
+        若已經有安裝了Mariadb
+            得將新裝的Mariadb port 改為3309
+    重新啟動MySQL 8.0.30
+        cmd 系統管理員身分啟動
+            net start mysql80
+    舊有安裝的MariaDB會被關掉
+
+    須確定IIS關閉 (會占用 port80)
+        開始/系統管理/控制台/程式集/開啟或關閉windows功能/Internet Information Service 關閉
+5. 開機完(未登入前)自動啟動wamp
+    系統管理員進入cmd
+    執行下列指令, 使其變成背景服務程式, 自動啟動
+        sc config wampapache64 start= auto
+        sc config wampmysqld64 start= auto.
+    都成功的話, 下次重新開機就會自動啟動了
+
+重開後發現右下角沒有wamp呀? 可以從服務去看
+找 wampapache64, wampmysqld64 是否執行中
+桌面的Wampserver64只是介面程式
+
+有可能服務已經在執行, 卻因為port被占用而沒有作用
+啟動Wampwserver64 確認是否為綠燈
+http://localhost
+
+-->

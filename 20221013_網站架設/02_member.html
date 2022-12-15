@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <form name="form1" action="process.html" method="get">
+      <table border="1" cellspacing="0" cellpadding="0" width="300" align="center">
+        <tr align="center">
+          <td colspan="2">會員註冊</td>
+        </tr>
+        <tr>
+          <td width="30">姓名</td>
+          <td width="100">
+            <input type="text" name="txtName">
+          </td>
+        </tr>
+        <tr>
+          <td>帳號</td>
+          <td width="100">
+            <input type="text" name="txtAccount">
+          </td>
+        </tr>
+        <tr>
+          <td>密碼</td>
+          <td width="100">
+            <input type="password" name="txtPassword">
+          </td>
+        </tr>
+        <tr align="center">
+          <td colspan="2">
+            <input type="submit" value="傳送">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+
+<!--
+method get / post
+get: 會將要傳送的資料放在網址後面
+?: 開始要傳送的資料
+&: 每筆資料使用&間隔
+  因此使用get會有資料外洩的危險
+  http://mahaljsp.asuscomm.com/process.html?txtName=張無忌&txtAccount=abc&txtPassword=1234
+
+post: 開啟另一條連線, 隱藏在背後傳送, 網址不會出現資料
+
+get 比較好操作, post比較麻煩, 測試時都會先用get測試看看, 或沒危險性的也是使用get
+
+process.html 是無法接收資料的, 因為都屬於前端在操作(在使用者的電腦操作)
+在伺服器運作的稱為後端
+-->

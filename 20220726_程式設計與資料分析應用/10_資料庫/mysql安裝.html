@@ -1,0 +1,38 @@
+<!--
+下載 : https://dev.mysql.com/downloads/mysql go to download page
+移除舊版 :
+    1. 開始/mysql/mysql installer
+    2. 刪除 C:\Program Files\MySQL 目錄
+    3. 刪除 C:\ProgramData\MySQL 目錄
+
+帳號密碼
+    1. 登入mysql 最高權限帳號 root, 密碼強度要設大一點(只能在本機登入)
+    2. 登入mysql 一般權限帳號 : 自己設, 密碼強度也要大一點
+    3. 忘了登入帳密, 抓去槍斃(...或重裝MySQL)
+
+安裝
+    1. developer default : 開發者預設
+    2. root password : 高強度密碼
+    3. add user : 設計名字, 與另一組高強度密碼
+    4. 主要在 MySQL Workbench 進行操作
+
+操作mysql
+    1. phpMyAdmin : 超級難用
+    2. Workbench : MySQL 官網開發的, 超級好用
+
+有安裝 wmap的人
+    1. wmap/mysql/my.ini
+        將port=3306 改成port=3308
+    2. 重新啟動 wmap
+
+將資料庫移到 d碟
+    1. 資料庫預設路徑 : C:\ProgramData\MySQL\MySQL Server 8.0\Data
+        資料庫放在 C碟(SSD)非常危險, 所以一定要移到 (HDD)D:\server
+    2. 使用系統管理員權限進入 DOS , 然後輸入 net stop mysql80
+    3. copy C:\ProgramData\MySQL\MySQL Server 8.0\Data
+        至 D:\server, 改名mysql
+    4. 使用 notepad++開啟 C:\ProgramData\MySQL\MySQL Server 8.0\my.ini
+        改 datadir=d:\server\mysql 然後儲存
+    5. 使用系統管理員權限進入 DOS , 然後輸入 net start mysql80
+
+-->

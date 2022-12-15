@@ -1,0 +1,55 @@
+<!--
+Apache設定
+1. 綠色圖示左鍵/apache/httpd.conf
+    search for "DocumentRoot"
+        使用檔案總管, 在e:/server 建立 web 資料夾
+        作為網路根目錄 E:/server/web
+
+        1.
+        DocumentRoot "${INSTALL_DIR}/www"
+        <Directory "${INSTALL_DIR}/www/">
+        改成 (用除號 / , 這是設計給linux使用的因素)
+            DocumentRoot "E:/server/web"
+            <Directory "E:/server/web">
+
+        2.
+        Options +Indexes +FollowSymLinks +Multiviews
+        改成 (不拿掉indexes的話, 別人會看到整個網站的內容)
+        Options +FollowSymLinks +Multiviews
+
+        3.
+        註解掉, 新增
+        # Require local
+        Require all granted
+
+2. 綠色圖示左鍵/apache/httpd-vhost.conf
+    1.
+    DocumentRoot "${INSTALL_DIR}/www"
+    <Directory "${INSTALL_DIR}/www/">
+    改為
+    DocumentRoot "E:/server/web"
+    <Directory "E:/server/web">
+
+    2.
+    Options +Indexes +Includes +FollowSymLinks +MultiViews
+    刪掉 indexes
+    Options +Includes +FollowSymLinks +MultiViews
+
+    3.
+    Require local
+    改為
+    Require all granted
+
+3. 綠色圖示左鍵/restart all services -> 綠燈為成功
+
+測試
+
+4. 在 E:/server/web 新增 info.php
+    <?php
+        phpinfo();
+    ?>
+
+5. 在瀏覽器網址輸入
+    http://localhost/info.php
+    -> 能顯示出phpinfo網頁 -> 成功
+-->

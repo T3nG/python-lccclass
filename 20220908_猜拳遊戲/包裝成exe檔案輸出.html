@@ -1,0 +1,25 @@
+<!--
+包裝成可執行檔 : exe
+1. 系統級安裝套件
+    進入 DOS模式
+    pip install pyqt5 pyinstaller
+2. 在DOS視窗進入專案之下
+    d: 切換磁碟
+    cd 目錄 : 進入目錄
+    cd .. 回上一層
+    cd e:\project\python\game 進入目錄
+    dir 查看檔案
+3. 編譯具有除錯視窗的exe檔
+    pyinstaller --hidden-import=queue -F Game.py
+    編譯好的 .exe檔置於專案\dist之下
+    專案\build 為暫存檔存放位置
+4. 編譯成沒有除錯視窗的exe檔(不懂的人還以為是什麼呢, 病毒?! 這樣)
+    a. 刪除 dist 及 build
+    b. pyinstaller --hidden-import=queue -w -F Game.py
+5. 圖片檔需手動放入到相應的目錄內
+
+防毒軟體本身就是病毒, 請移除(何出此言呢..嗯..)
+    用虛擬機器來開啟可疑的exe檔
+    VMWare 付費
+    Virtual Box 免費
+-->

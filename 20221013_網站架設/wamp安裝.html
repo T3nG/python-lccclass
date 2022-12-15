@@ -1,0 +1,73 @@
+<!--
+1. Web server安裝及設定
+2. wordpress安裝
+3. 資料備份
+4. 網路概論
+5. DNS/NO-IP
+
+web server 種類
+作業系統    網頁伺服器         資料庫      網頁程式
+Linux       Apache/nginx    MySQL      php/jsp/Django(尖狗) (LAMP) wordpress使用 php
+Win10       IIS             MSSQL      Asp.net : 台灣政府單位常用，一般有技術的公司絕對不會使用
+Win10       Apache          MySQL      php/jsp : WAMP
+
+XAMPP也是在Win10架設 apache/mysql/php : xampp爛爛的，不太穩定。但設定畫面比較漂亮
+
+0. 最好先安裝 Visual Studio 2019(AI會用到，wamp也需用到 .netFramewrok)
+    a. 下載 https://visualstudio.microsoft.com/zh-hant/vs/older-downloads/
+        Visual Studio Enterprise 2019 (version 16.11)
+    b. 安裝請參照http://mahaljsp.asuscomm.com/index.php/2016/10/29/visual_c_sharp_01/
+1. 先將舊版的 wamp 移除
+2. 安裝 chrome/notepad++
+3. 下載WAMP : https://sourceforge.net/projects/wampserver/
+   a. mysql : 選擇8.0.27
+   b. another browser : C:\Program Files\Google\Chrome\Application\chrome.exe
+   c. another text editor : C:\Program Files\Notepad++\notepad++.exe
+4. 設定資料庫:
+    正常安裝 : MySQL 8.0.30
+    WAMP 使用 MySQL 8.0.27 :舊版，跟8.0.30差很大
+    a. 將wamp mysql 8.0.27的 port 改成 3308
+        1)桌面的wampserver64二下
+        2)右下角的圖示 左鍵/MySQL/my.ini
+        3)將 3 個 3306 改成 3308
+        4)儲存
+    b. 小圖示左鍵/restart all Services
+    c. 安裝 mysql 8.0.30(以前有安裝過的請跳過)
+        1)下載 : https://dev.mysql.com/downloads/mysql/
+        2) goto download page
+        3) 下載 8.0.31
+        4) 有安裝過 8.0.30的人，請先移除
+        5) 手動刪除 C:\ProgramData\MySQL及 C:\Program Files\MySQL
+        6) 安裝 MySQL 8.0.31
+        7) Account and Role
+           root : 密碼寫在這裏(強一點的密碼)
+           add user :
+            新增一個帳號 : 比如 student
+            設定密碼    : 密碼寫在這裏
+           以上，忘記帳號密碼的人，會被抓去槍斃
+    d. 有安裝過 8.0.30/31的人，系統管理員開啟 dos
+        net start mysql80
+5. 若出現紅或橘
+    a. 是否移除舊的 wamp
+    b. 是否移除 xampp
+    c. 是否有關掉 IIS
+       開始/系統管理/控製台/程式集/開啟或關閉Windows功能/Internet Information Service必需取消
+6. 開機完(未登入前)自動啟動wamp
+    a. 系統管理員進入dos
+    b. 執行下面指令，變成背景服務程式，自動啟動
+        sc config wampapache64 start= auto
+        sc config wampmysqld64 start= auto
+    c. 二個都成功的話，下次重新開機就會自動啟動
+7. 將mysql資料庫目錄移到d:\server
+    a. 系統管理員進入dos
+    b. net stop mysql80
+    以前有作過的人，請不要作 c及 d 二點
+    c. 將 C:\ProgramData\MySQL\MySQL Server 8.0\Data copy 到 d:\server內
+    d. 將 d:\server\Data改名為 mysql
+    e. 用 notepad++ 開啟 C:\ProgramData\MySQL\MySQL Server 8.0\my.ini
+    f. 將 datadir = c:/server/mysql
+    g. 要儲存2次
+    h. 系統管理員進入dos
+        net start mysql80
+
+-->

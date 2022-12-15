@@ -1,0 +1,45 @@
+<!--
+    WAMP
+    Windows+Apache+Mysql(8.0.27)+Php
+    爬蟲: 網路概論, 伺服器架設, 設定
+
+    路徑 datadir=e:/server/mysql
+
+    有安裝mariaDB的人, 也要更改 port
+    
+    如果是公司或商業用途, 資料庫作業系統
+    一定要用Linux, 連windows都不能用
+
+    比如老師任職的公司, 某個資料庫底下有九百萬筆資料, 一定要Linux才開得起來
+
+================
+
+資料庫備份還原
+    設定路徑
+    1. 使用檔案總管進入 C:\Program Files\MySQL\MySQL Server 8.0\bin
+    2. 開始右鍵/系統/進階系統設定/環境變數
+       於系統變數中找到 path/編輯
+       新增
+       C:\Program Files\MySQL\MySQL Server 8.0\bin
+    3. 離開DOS, 重新進入dos, path才會生效
+
+
+備份
+    cmd 進入備份檔案的存放路徑
+    mysqldump -u dengfixanros -p --routines cloud > cloud20220920.sql
+    
+    請確認檔案大小須大於 0
+
+還原
+*模擬資料不見了 : cloud右鍵/drop schema
+1. 使用workbench建立一個新的schema utf8 utf8unicode
+2. 進入dos
+    d:
+    cd d:\backup
+    mysql -u dengfixanros -p --default-character-set=utf8 cloud < cloud20220920.sql
+3. 回到workbench, cloud右鍵/refresh, 查看資料是否有出現
+
+切記: 
+    新建資料庫時, 絕對不可以使用中文, 因為檔案會以utf8碼當檔名, 會無法備份, 但資料表可以用中文
+
+-->

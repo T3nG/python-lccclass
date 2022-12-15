@@ -1,0 +1,69 @@
+<!--
+設定連線
+    1. 開啟 workbench
+    2. +
+    3. connection Name : localhost
+        HostName : localhost
+        UserName : 帳號
+        Store in vault : 密碼
+
+連線到 mahaljsp
+    1. 首頁 +
+    2. mahaljsp
+    3. hostname mahaljsp.asuscomm.com
+    4. lcc lcc0507
+
+建立資料庫
+    1. create new Schema
+    2. name : cloud (資料庫名, 絕對不可以使用中文)
+    3. default charset -> utf8 / utf8_unicode_ci
+
+建立資料表
+    1. cloud/tables/create table
+    2. table name: 員工資料表(資料表可以用中文)
+    3. 欄位
+        id int AI
+        姓名 varchar(10)
+        地址 varchar(50)
+        電話 varchar(15)
+        生日 DATE
+    4. apply
+
+SQL 四大語法 CURD(Create, Update, Read, Delete)
+create new tab
+字串都要用 單引號 刮起來(不可用雙引號)
+用逗號的方式, 速度非常快(用迴圈寫的話, 速度會很慢)
+    1. 新增
+        use cloud;
+        insert into 員工資料表(姓名, 地址, 電話, 生日) values
+        ('張無忌', '福興鄉', '0977366875', '1966-05-21'),
+        ('周星星', '香港', '0989125456', '1960-01-10'),
+        ('許茹芸', '台北市', '0989888456', '1970-11-10')
+            press lightning icon(execute)
+    2. 查詢
+        use cloud;
+        select * from 員工資料表
+        select * from 員工資料表 where 地址 = '台北市';
+        select * from 員工資料表 where 地址 like '%市';
+        select * from 員工資料表 where 生日 >= '1970-01-01';
+        ctrl + shfit + enter : 執行的快速鍵
+    3. 修改
+        use cloud;
+        update 員工資料表 set 生日 = '1990-01-01' where id=1;
+            若沒有下達 where 指令, 所有的資料都會變更
+            喝酒不玩資料庫, 玩資料庫絕對不能喝酒
+    4. 刪除
+        use cloud;
+        set sql_safe_updates=0;   (安全模式關閉)
+        delete from 員工資料表 where 地址 = '香港';
+        set sql_safe_updates=1;   (安全模式打開)
+
+        若沒有 where 的話, 一百萬, 一千萬, 十億筆資料, 秒殺, 完全救不回來
+        當條件裡的欄位, 沒有做索引的話, 會出現安全更新錯誤, 是8.0.27開始有的功能
+        set sql_safe_updates=0; 關掉安全更新功能
+
+        新增索引 indexes
+        地址_index 打勾 apply
+
+
+-->
