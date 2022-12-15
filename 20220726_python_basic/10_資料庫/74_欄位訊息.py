@@ -1,8 +1,9 @@
 import mysql.connector as mysql
-conn=mysql.connect(host="mahaljsp.asuscomm.com",
-                   user="lcc",
-                   password="lcc0507",
-                   database="cloud")
+from Gfile.G import G
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 
 cursor=conn.cursor()
 cursor.execute("select * from 台銀黃金")

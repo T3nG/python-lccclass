@@ -37,10 +37,11 @@ face :
 
 
 import mysql.connector as mysql
-conn=mysql.connect(host="mahaljsp.asuscomm.com",
-                   user="lcc",
-                   password="lcc0507",
-                   database="cloud")
+from Gfile.G import G
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 cursor=conn.cursor()
 # cursor.execute("select * from 台灣股市")
 # cursor.execute("select * from 台銀黃金")
@@ -51,10 +52,10 @@ rs=cursor.fetchall()
 cursor.close()
 conn.close()
 
-conn=mysql.connect(host="localhost",
-                   user="dengfixanros",
-                   password="666x-GGteng%",
-                   database="cloud")
+conn=mysql.connect(host=G.host_loc,
+                   user=G.user_loc,
+                   password=G.password_loc,
+                   database=G.database_loc)
 cursor=conn.cursor()
 data=[]
 # 台灣股市

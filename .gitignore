@@ -1,8 +1,17 @@
 
-20221115_爬蟲/G.py
-20221103_Web/G.py
-20221201_資料視覺化/Gfile/G.py
-20221202_MachineLearning/05_VGG_1/flower_photos
-20221202_MachineLearning/06_VGG_2/flowers_17
-20221202_MachineLearning/06_VGG_2/test_img
-20221202_MachineLearning/06_VGG_2/train_img
+20220726_python_basic/Gfile/G.py
+20221103_web/G.py
+20221115_web_crawler/G.py
+20221201_visualization/bokeh/Gfile/G.py
+20221201_visualization/plotly/Gfile/G.py
+20221201_visualization/plotly-express/Gfile/G.py
+20221201_visualization/pyqt5-plotly/Gfile/G.py
+20221201_visualization/pyqt5-plotly/.idea
+20221201_visualization/pyqt5-plotly/venv
+20221201_visualization/pyqt5-plotly/__pycache__
+20221201_visualization/pyqt5-plotly/ui/__pycache__
+20221202_machine_learning/05_VGG_1/flower_photos
+20221202_machine_learning/06_VGG_2/flowers_17
+20221202_machine_learning/06_VGG_2/test_img
+20221202_machine_learning/06_VGG_2/train_img
+

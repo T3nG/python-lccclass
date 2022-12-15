@@ -3,10 +3,11 @@
 # 資料呈現用樞紐分析表, 可以用資料庫的功能, python去轉換
 
 import mysql.connector as mysql
-conn=mysql.connect(host="mahaljsp.asuscomm.com",
-                   user="lcc",
-                   password="lcc0507",
-                   database="cloud")
+from Gfile.G import G
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 cursor=conn.cursor()
 cmd="select * from fruit"
 cursor.execute(cmd)
@@ -18,10 +19,10 @@ conn.close()
 
 # print(data)
 
-conn=mysql.connect(host='localhost',
-                   user='dengfixanros',
-                   password='666x-GGteng%',
-                   database='cloud')
+conn=mysql.connect(host=G.host_loc,
+                   user=G.user_loc,
+                   password=G.password_loc,
+                   database=G.database_loc)
 cursor=conn.cursor()
 cmd="insert into 水果銷售 (日期, 國家, 水果, 數量, 單價) values (%s, %s, %s, %s, %s)"
 cursor.executemany(cmd,data)

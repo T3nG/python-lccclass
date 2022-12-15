@@ -1,8 +1,9 @@
 import mysql.connector as mysql
-conn=mysql.connect(host="mahaljsp.asuscomm.com",
-                   user="lcc",
-                   password="lcc0507",
-                   database="cloud")
+from Gfile.G import G
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 
 
 cursor=conn.cursor()
@@ -18,10 +19,10 @@ conn.close()
 # 資料取得之後, 關閉cursor與連線(降低伺服器端的負載)
 
 # 把取得的資料放到本機的資料庫內
-conn=mysql.connect(host="localhost",
-                   user="dengfixanros",
-                   password="666x-GGteng%",
-                   database="cloud")
+conn=mysql.connect(host=G.host_loc,
+                   user=G.user_loc,
+                   password=G.password_loc,
+                   database=G.database_loc)
 cursor=conn.cursor()
 for r in rs:
     try: # 例外處理

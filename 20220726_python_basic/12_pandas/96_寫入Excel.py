@@ -4,8 +4,12 @@
 
 import mysql.connector as mysql
 import pandas as pd
+from Gfile.G import G
 
-conn=mysql.connect(host="mahaljsp.asuscomm.com", user="lcc", password="lcc0507", database="cloud")
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 cursor=conn.cursor()
 cursor.execute("select * from 台灣股市")
 ds=cursor.description

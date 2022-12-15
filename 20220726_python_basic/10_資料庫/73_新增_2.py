@@ -5,10 +5,11 @@
 # Truncate table => 把資料表內的資料清空
 # 日期 UQ 打勾 , 數值唯一不重複
 import mysql.connector as mysql
-conn=mysql.connect(host="mahaljsp.asuscomm.com",
-                   user="lcc",
-                   password="lcc0507",
-                   database="cloud")
+from Gfile.G import G
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 cursor=conn.cursor()
 cmd="select * from 台灣股市 order by 日期"
 cursor.execute(cmd)
@@ -19,10 +20,10 @@ cursor.close()
 conn.close()
 # 上: 取得資料
 # 下: 寫入資料
-conn=mysql.connect(host="localhost",
-                   user="dengfixanros",
-                   password="666x-GGteng%",
-                   database="cloud")
+conn=mysql.connect(host=G.host_loc,
+                   user=G.user_loc,
+                   password=G.password_loc,
+                   database=G.database_loc)
 cursor=conn.cursor()
 data=[]
 for r in rs:

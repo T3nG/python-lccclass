@@ -1,5 +1,6 @@
 import pandas as pd
 import mysql.connector as mysql
+from Gfile.G import G
 
 # pandas DataFrame 印不出來? 出現省略記號 ...
 # 完美列印 : 第一種
@@ -22,7 +23,10 @@ dis.width=None
 dis.max_colwidth=None
 
 
-conn=mysql.connect(host='localhost',user='dengfixanros',password='666x-GGteng%',database='cloud')
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 cursor=conn.cursor()
 cursor.execute("select * from 台灣股市")
 ds=cursor.description # 欄位名稱

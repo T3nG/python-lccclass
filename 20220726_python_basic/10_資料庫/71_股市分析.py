@@ -6,12 +6,13 @@
 import mysql.connector as mysql
 import numpy as np
 import pylab as plt
+from Gfile.G import G
 
 # 建立連線
-conn=mysql.connect(host="mahaljsp.asuscomm.com",
-                   user="lcc",
-                   password="lcc0507",
-                   database="cloud")
+conn=mysql.connect(host=G.host,
+                   user=G.user,
+                   password=G.password,
+                   database=G.database)
 
 # 建立執行命令的物件 - cursor : 游標
 cursor=conn.cursor()
