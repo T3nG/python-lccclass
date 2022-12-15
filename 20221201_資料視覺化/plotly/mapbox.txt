@@ -1,0 +1,5 @@
+mapbox token 申請
+1. Android: 下載 sdk token, download:read要打勾, 此token只能copy一次
+2. 只是要使用token: download:read 不能打勾(secret scope裡都不能勾)
+
+http://mahaljsp.asuscomm.com/index.php/2021/04/21/mapbox/
