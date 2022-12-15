@@ -1,0 +1,2 @@
+1. 下載qtdesigner
+2. 開啟 qtdesigner, 選 Main Window
