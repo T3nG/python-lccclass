@@ -36,4 +36,12 @@ class Gold(QThread):
                 line=dict(color='royalblue', width=2)
             )
         )
+        fig.add_trace(
+            go.Scatter(
+                x=x,
+                y=buy,
+                mode='lines',
+                line=dict(color='green', width=2)
+            )
+        )
         self.callback.emit(fig)
