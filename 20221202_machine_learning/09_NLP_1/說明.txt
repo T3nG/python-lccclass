@@ -1,0 +1,12 @@
+http://mahaljsp.asuscomm.com/index.php/2022/12/13/word2vec/
+https://www.kaggle.com/code/paoloripamonti/twitter-sentiment-analysis
+
+NLP: Natural Language Processing
+情緒監控: Sentiment => emotion
+1. 將訓練資料載入, 變成字典, 並數位化(向量化)
+2. 使用 LSTM(長短期記憶模型) 模型, 訓練情緒模型(資料中有正負評標註)
+3. 偵測字詞
+4. 中文字詞斷詞
+    this is a book => book是一個單字
+    台灣是一個寶島 => 台灣, 寶島 分別是單字
+    斷詞有兩種方式, 中研院的斷詞系統, 另一個是大陸的 jeiba (結巴) 系統
