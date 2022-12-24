@@ -1,0 +1,34 @@
+讀取資料....
+讀取資料花費時間: 1.7426388263702393秒
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\User\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+轉成 negative positive....
+轉換花費時間: 0.1817178726196289秒
+開始預處理.....
+預處理花費時間: 20.777080059051514秒
+開始製作字典....
+製作字典花費時間: 17.854869604110718秒
+WARNING:tensorflow:Layer lstm will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+開始訓練....
+Epoch 1/8
+1250/1250 [==============================] - 892s 713ms/step - loss: 0.5438 - accuracy: 0.7195 - val_loss: 0.4827 - val_accuracy: 0.7689 - lr: 0.0010
+Epoch 2/8
+1250/1250 [==============================] - 934s 747ms/step - loss: 0.5136 - accuracy: 0.7429 - val_loss: 0.4770 - val_accuracy: 0.7731 - lr: 0.0010
+Epoch 3/8
+1250/1250 [==============================] - 925s 740ms/step - loss: 0.5065 - accuracy: 0.7481 - val_loss: 0.4717 - val_accuracy: 0.7751 - lr: 0.0010
+Epoch 4/8
+1250/1250 [==============================] - 908s 727ms/step - loss: 0.5022 - accuracy: 0.7511 - val_loss: 0.4681 - val_accuracy: 0.7776 - lr: 0.0010
+Epoch 5/8
+1250/1250 [==============================] - 920s 736ms/step - loss: 0.4999 - accuracy: 0.7525 - val_loss: 0.4661 - val_accuracy: 0.7789 - lr: 0.0010
+Epoch 6/8
+1250/1250 [==============================] - 935s 748ms/step - loss: 0.4978 - accuracy: 0.7543 - val_loss: 0.4639 - val_accuracy: 0.7797 - lr: 0.0010
+Epoch 7/8
+1250/1250 [==============================] - 937s 750ms/step - loss: 0.4967 - accuracy: 0.7544 - val_loss: 0.4619 - val_accuracy: 0.7804 - lr: 0.0010
+Epoch 8/8
+1250/1250 [==============================] - 903s 723ms/step - loss: 0.4955 - accuracy: 0.7556 - val_loss: 0.4604 - val_accuracy: 0.7817 - lr: 0.0010
+訓練時間花費: 7354.47246670723秒
+313/313 [==============================] - 47s 151ms/step - loss: 0.4604 - accuracy: 0.7817
+Accuracy: 0.7817000150680542
+Loss: 0.46038851141929626
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
