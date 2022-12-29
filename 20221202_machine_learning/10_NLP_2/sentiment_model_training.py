@@ -163,8 +163,8 @@ plt.plot(epochs, loss, 'royalblue', label='Training loss')
 plt.plot(epochs, val_loss, 'crimson', label='Validation loss')
 plt.title('Training and validation accuracy/loss')
 plt.legend()
-if os.path.exists('my_sentiment_model'):
-    shutil.rmtree('my_sentiment_model')
+if os.path.exists('lasttime/my_sentiment_model'):
+    shutil.rmtree('lasttime/my_sentiment_model')
 model.save('my_sentiment_model')
 plt.savefig('result.png')
 plt.show()

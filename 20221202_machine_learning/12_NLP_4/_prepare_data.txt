@@ -1,0 +1,21 @@
+中文字詞轉向量
+pip install tensorflow==2.10.1 scikit-learn jieba wordcloud matplotlib
+中文必須先斷詞, 才能向量化
+比如: 這台電腦真的很快 = This computer is really fast
+這  台  電腦  真的  很快
+台灣中研院的斷詞系統: 很爛
+大陸開發的 jieba 結巴斷詞系統
+2013年, 大陸大量進入台灣內湖開設軟體公司, 台灣的人工便宜 - 海派
+2015年, 全部撤資, 台灣 95%的工程師都寫不出軟體
+下載字典: https://github.com/APCLab/jieba-tw
+jieba-tw/jieba/dict.txt
+下載停用詞: https://github.com/GoatWang/ithome_ironman/tree/master/day16_NLP_Chinese
+ithome_ironman/day16_NLP_Chinese/stops.txt  => Raw: save as
+下載訓練資料: https://www.kaggle.com/c/fake-news-pair-classification-challenge
+Data/Download All 需要註冊登入才可下載, 有三個檔案 train.csv, test.csv, sample_submission.csv
+train.csv 有 32萬組資料
+test.csv 有 8萬組資料
+得使用 notepad++開啟檔案查看, 裡面都是簡體中文
+最後一個欄位 label: unrelated 表示不相關, agree 表示真實消息, disagree 表示假消息
+
+但下載的jieba字典是繁體, 須將訓練資料轉成繁體
