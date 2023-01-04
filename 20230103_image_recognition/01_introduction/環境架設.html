@@ -1,0 +1,34 @@
+<!--
+http://mahaljsp.asuscomm.com : 吳明學(Thomas Wu)
+程式設計師的工作，就是讓別人沒工作
+
+環境架設
+1. python 安裝 : https://www.python.org/
+    不可以安裝最新的版本，只能安裝 3.8.10 Download Windows installer (64-bit)
+    安裝時 Add Python3.8 to path一定要打勾
+    最後要按下 Disable path length limit
+2.  pycharm :https://www.jetbrains.com/pycharm/
+    選 Community版本/Other versions : 2022.3.1
+硬体需求 - 看經濟狀況
+1. CPU 最好是第七代以後的 i7
+2. Ram 最好是32G以上
+3. GPU : nVidia RTX3070Ti 以上，最好是有 10G的 ram。 不可以用AMD
+
+替代方案 : colab  https://colab.research.google.com/
+
+第一次使用
+1. new project : 第一個 location 選 d: or e: , 新增 python目錄
+    然後再新增 20230103目錄(專案名稱)
+    以上所有的路徑，都不可以使用中文 : 使用中文，套件無法安裝
+    第二個 location 會出現 d:\python\20230103_1\venv
+    禁止使用 使用者/xxx/裏面的目錄 : 資料很忌諱放在 c: , 因為 ssd很容易壞掉
+2. 更改佈景主題 : File/Setting/Apperance/Intellij Light : 白底黑字，
+    紅色錯誤線會比較明顯
+3. 更改字体大小 : File/Setting/Editor/General/Change font size with
+    control+mouse wheel 要打勾
+更改 PowerShell權限
+1. 開始/Window PowerShell/WindowPowerShell 右鍵/以系統管理員身份執行
+2. set-ExecutionPolicy remotesigned，然後按 A
+3. Pycharm必需關掉再重新執行才會生效
+4. 測試 : 在 Terminal 執行 : pip install matplotlib
+-->
