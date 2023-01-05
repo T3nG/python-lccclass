@@ -1,0 +1,38 @@
+<!--
+    1. Anaconda/Spider : 安裝了許多用不到的套件，很肥啦
+        另外跟 pyqt5 視窗程式相衝，無法執行
+        有的教 tkinter : 玩具
+    2. 很多人都不知道，原來 Python 也可以寫視窗程式，而且是主流
+    3. 因為不會視窗，所以特別重視 Django(尖狗)
+
+    nVidia提供 :
+    CUDA : 可以想成要跟顯卡驅動程式連接的一層
+    cudnn : 高階函數庫，將要計算的函數送入 cuda 裏面
+    Tensorflow : 深度學習的一個框架，由Google提供 =>把資料送入 cudnn內
+                若沒有GPU, 會直接啟動cpu執行
+    Pytorch : 等級跟Tensorflow一樣，是另一個深度學習的框架
+    cuda/cudnn/python : 最忌諱追求最新的版本 : 只求穩定，快點完成專案，快點收錢
+cuda移除
+    1. 應用程式 : 移除舊版
+    2.手動刪除 C:\Program Files\NVIDIA GPU Computing Toolkit
+安裝 cuda :
+    1. https://developer.nvidia.com/cuda-toolkit-archive
+        下載 11.8的版本(沒有 for 12.0 的 cudnn)
+    2. nVidia顯卡驅動要先安裝 :  GeForce Experience
+        https://www.nvidia.com/zh-tw/geforce/drivers/
+    2. 安裝前，必需將 ROG-Strix(Asus)關掉, msi(微星)的監控也關掉
+    3. 安裝 cuda
+    4. 安裝時，會安裝在 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0
+安裝 cudnn
+    1. https://developer.nvidia.com/cudnn
+    2. join now : 註冊
+    3. login
+    4. Download cuDNN v8.7.0 (November 28th, 2022), for CUDA 11.x
+       Local Installer for Windows (Zip)
+    5. 解開壓縮檔 : 將 bin, include, lib copy 到
+       C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8
+
+中華ADSL : 500M/250M 999元/月
+        以前 100M/40M 999元/月 : 一定要打電話去升級
+
+-->
