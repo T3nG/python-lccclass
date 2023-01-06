@@ -14,8 +14,8 @@ from MySGDM import MySGDM
 def runnable():
     for i in range(epoch):
         gd.update()
-        if np.isnan(gd.loss):
-            break
+        # if np.isnan(gd.loss):
+        #     break
         a = gd.a
         b = gd.b
         loss = gd.loss

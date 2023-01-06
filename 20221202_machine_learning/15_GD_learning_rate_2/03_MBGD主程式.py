@@ -15,8 +15,8 @@ def runnable():
     for i in range(epoch):
         gd.update()
         # numpy 的 nan(不是數字) 不是 python 的 None
-        if np.isnan(gd.loss):
-            break
+        # if np.isnan(gd.loss):
+        #     break
         a = gd.a
         b = gd.b
         loss = gd.loss

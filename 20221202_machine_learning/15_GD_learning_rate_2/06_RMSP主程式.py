@@ -13,8 +13,8 @@ def runnable():
     for i in range(epoch):
         gd.update()
         # 如果 loss為 nan, 表示批次取樣已經取完, 需重新打亂再重頭取樣
-        if np.isnan(gd.loss):
-            break
+        # if np.isnan(gd.loss):
+        #     break
         a = gd.a
         b = gd.b
         loss = gd.loss
