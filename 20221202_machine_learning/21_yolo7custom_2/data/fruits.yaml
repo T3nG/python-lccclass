@@ -1,0 +1,11 @@
+download: bash ./scripts/get_coco.sh
+
+train: ./fruits/train.txt  #
+val: ./fruits/val.txt  #
+test: ./fruits/test.txt  # not used
+
+# number of classes
+nc: 4
+
+# class names
+names: ['guava', 'lemon', 'pitaya', 'wax']

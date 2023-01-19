@@ -1,0 +1,65 @@
+訓練自己的圖片, 更加複雜
+下載圖片
+    1. 圖片資料 fruits.zip
+        http://mahaljsp.asuscomm.com/files/yolov7/fruits.zip
+    2. 訓練好的模型 runs.zip
+        http://mahaljsp.asuscomm.com/files/yolov7/runs.zip
+    3. 將 fruits/labels 改為 fruits/labels_org
+    4. 新增 fruits/labels 空目錄
+        其下新增四個空資料夾 guava, pitaya, lemon, wax
+
+下載yolov7程式碼
+    https://github.com/wongkinyiu/yolov7
+    code/download zip
+    將yolov7-main的內容解壓到專案目錄底下
+
+標示圖片
+    1. 進入命令提示字元 pip install labelimg
+    2. labelimg   -> 直接啟動
+    3. 圖片格式
+        create ml/pascal voc/yolo 請選擇 yolo
+    4. open dir
+        fruits/images/guava
+    5. save dir
+        fruits/labels/guava
+    6. 手動標記
+        w 按下左鍵拖移範圍, 放開後輸入標記名稱
+        ctrl+s存檔
+        繼續下一張
+
+分割訓練及驗證資料
+    train.txt: 90%
+    val.txt: 10%
+
+cfg設定
+    copy cfg/training/yolov7.yaml, 然後改名成 fruits.yaml, 將裡面的 nc(number of classes) 改成 4
+    儲存
+
+data設定
+    copy data/coco.yaml, 然後改名為 fruits.yaml
+
+    .yaml 的內容即使是註解也不能使用
+
+刪除 fruits底下的 train.cache (若有的話
+刪除 fruits/labels 內的 classes.txt, label => labels
+
+移除torch 1.13.1 跟 yolov7 不相容
+    install requirements
+    pip uninstall torch
+    pip install torch==1.10.1
+    pip install setuptools==59.5.0
+    pip install .\_torch_1_10_1\torch-1.10.0+cu113-cp38-cp38-win_amd64.whl
+    pip install .\_torch_1_10_1\torchvision-0.11.1
+    pip install .\_torch_1_10_1\torch-1.10.0+cu113-cp38-cp38-win_amd64.whl
+
+    pip3 install protobuf==3.20.1
+
+開始訓練
+    進入專案目錄
+    cd E:\GitHub\python-lccclass\20221202_machine_learning\21_yolo7custom_2
+    venv\Scripts\python train.py --workers 8 --device 0 --batch-size 8 --data data\fruits.yaml --img 640 640  --cfg cfg\training\fruits.yaml --name yolov7 --hyp data\hyp.scratch.p5.yaml --weights '' --epoch 3000
+
+訓練好會在 runs\train\yolov7xxxx\weights 下產生 best.pt
+
+偵測圖片
+    venv\Scripts\python detect.py --weights ./runs/train/yolov7/weights/best.pt --conf 0.1 --source ./fruits/images/pitaya/00017.jpg

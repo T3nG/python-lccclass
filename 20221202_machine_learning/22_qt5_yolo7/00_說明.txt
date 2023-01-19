@@ -1,0 +1,40 @@
+1. 安裝 QtDesigner
+2. 開始新專案 將 yolov7 解壓至此
+3. 有時重新開啟此專案時, 會自動執行 pip install -r requirements.txt
+    但我們的 torch, torchvision, 有指定的版本
+    可以透過更改 requirement.txt的內容來安裝指定的版本
+        結果是安裝的 torch似乎不支援 GPU
+        pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+        若 pip 裝不起來, 到老師的網站下載 http://mahaljsp.asuscomm.com/files/torch/torch.zip
+        將三個.whl檔存放到專案下_pytorch_file
+            torch-1.10.0+cu113-cp38-cp38-win_amd64.whl
+            torchvision-0.11.1+cu113-cp38-cp38-win_amd64.whl
+            torchaudio-0.10.0+cu113-cp38-cp38-win_amd64.whl
+        透過專案下的pip安裝
+下載下來的三個檔案放到專案下, 透過 pip install 安裝, 安裝順序 torch, vision, audio
+4. ref:　http://mahaljsp.asuscomm.com/index.php/2023/01/10/yolov7%e8%88%87pyqt5/
+5. pip install pyqt5
+    在qtdesigner完成視窗設計後, 儲存在專案下 ui\
+6. file\setting\tools\external tools\ add
+    name: pyUic_yolo7
+    program: E:\GitHub\python-lccclass\20221202_machine_learning\22_qt5_yolo7\venv\Scripts\pyuic5.exe
+    arg: $FileName$ -o $FileNameWithoutExtension$.py
+    working dir: $ProjectFileDir$\ui
+7. ui\ui_mainwindow.ui 右鍵 external tools\pyUic_yolo7
+    每次更改設計就得重新生成 ui.py檔
+8. ai.py
+9. LoadModelThread.py
+10. PictureThread.py
+11. yolo7.pt 從 yolov7 github 下載權重
+
+12. 包裝成 .exe檔
+    1. 系統級安裝
+        pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+        pip install opencv-python matplotlib pyinstaller pyqt5
+    2. 命令提示字元進入專案下
+        E:\GitHub\python-lccclass\20221202_machine_learning\22_qt5_yolo7
+        pyinstaller --hidden-import=queue -w -F ai.py
+        -w 除錯窗不顯示
+    4. 記得把 yolov7.pt 複製到 專案下產生的 dist中
+    5. 檔案大小達到2.4G, 太大了, 無法執行
+    PermissionError: [WinError 32] 程序無法存取檔案，因為檔案正由另一個程序使用。: 'E:\\GitHub\\python-lccclass\\20221202_machine_learning\\22_qt5_yolo7\\dist\\ai.exe.notanexecutable' -> 'E:\\GitHub\\python-lccclass\\20221202_machine_learning\\22_qt5_yolo7\\dist\\ai.exe'

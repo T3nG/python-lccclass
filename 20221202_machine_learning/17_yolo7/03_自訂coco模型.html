@@ -1,0 +1,47 @@
+<!--
+colab無法訓練 coco資料，因為雲端硬碟只有15G, 但 coco資料有 24G
+安裝套件
+    pip install -r requirements.txt
+coco代號
+    coco只是一個專案代號，沒啥特別意思，是官網幫我們準備好需要訓練的圖片
+圖片位置
+    coco2017labels-segments.zip 解壓縮至此，就會多出一個 coco目錄
+    val2017.zip解壓縮至此，會多出 val2017目錄，將之移到 coco\images之下
+    test2017.zip 解壓縮至此, 產生test2017目錄，將之移到 coco\images之下
+    先把 coco\images\train2017空目錄刪除
+    train2017.zip 解壓縮至此, 產生train2017目錄，將之移到 coco\images之下
+
+    coco\images\將所有類別的圖片，集合在一個目錄之下
+    coco\labels\train2017.txt : 記錄所有圖片包含的種類(數字)，及標識種類的座標(均一化)
+    data\coco.yaml : 記錄 number of classes nc:80種 及 每個種類的名稱 class names(英文)
+   並記錄要訓練的圖片路徑
+
+開始訓練
+    0. 訓練前，若有在挖礦，請先把挖礦程式關掉
+    1. 進入命令提示字元
+    2. e:, cd \pthon\20230106,
+    3. venv\Scripts\pip install setuptools==59.5.0
+    4. venv\Scripts\python train.py --workers 8 --device 0 --batch-size 8 --data data/coco.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --name yolov7 --hyp data/hyp.scratch.p5.yaml --weights ''
+        --workers 8 : 動用所有的 cpu數 : Python 只能啟動一顆 CPU，如何在訓練時啟動8顆? 因為是調用c語言
+        --device 0 : GPU0
+        --batch-size : 12G可調 8，少於12G的話，只能調 4，4G無法執行
+        --data : 種類檔案及訓練資料
+        --cfg : 捲積層的設定
+        --weight : '' (空字串)表示重新開始訓練
+        --epochs : 要訓練的次數，愈多愈準確，預設為 300次 : 要300個小時
+    5. 訓練時，顯卡溫度會高達80度，記得用電風扇吹
+       400w*0.8=320瓦，要花費電費 720元左右
+
+更改圖片 - 很重要，一定要仔細看
+    因為訓練時，會先製作 cache 檔，所以若有更新圖片，要先砍掉 coco\train2017.cache及 val2017.cache
+    下次訓練時，重新製作 cache 檔
+
+監控
+    1. 開啟另一個命令提示字元
+    2. 系統級安裝 pip install tensorboard(儀表板)
+    3. 進入專案下 : tensorboard --logdir runs/train
+    4. 開啟瀏覽器 : http://localhost:6006/
+輸出
+    訓練好的權重，儲存在 專案\runs\train\yolov7\weights目錄之下，最後的結果是 best.pt
+    若中途中斷，會產生 last.pt, 可以由此檔繼續開始訓練
+-->
