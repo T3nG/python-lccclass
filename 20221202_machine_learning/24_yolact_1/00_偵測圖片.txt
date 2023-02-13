@@ -1,0 +1,11 @@
+使用官網權重偵測圖片
+python eval.py --trained_model=weights/yolact_resnet50_54_800000.pth --config=yolact_resnet50_config --score_threshold=0.3 --top_k=100 --image=test/elephant_01.jpg
+
+使用自訂訓練權重偵測圖片
+python eval.py --trained_model=weights/yolact_base_3999_8000.pth --config=animal_config --score_threshold=0.3 --top_k=100 --image=test/elephant_01.jpg
+
+eval.py 為官網所給的程式碼, 可以偵測圖片, 也可以偵測影片, 有 1000多行, 寫得非常的混亂, 根本沒人看得懂
+所以自己撰寫 detect.py
+
+偵測影片
+python eval.py --trained_mode=weights\yolact_resnet50_54_800000.pth --config=yolact_resnet50_config --video_multiframe=4 --top_k=15 --score_threshold=0.3 --video=gemsky_2.mp4:output.mp4

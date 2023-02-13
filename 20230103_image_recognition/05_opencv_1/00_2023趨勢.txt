@@ -1,0 +1,10 @@
+2023發展
+1. Google 可能啟動 AI搜索引擎, 受 ChatGPT影響
+2. PyTorch 可能取代 Tensorflow
+3. nVidia CUDA 可能支援 AMD顯卡, 受到 PyTorch影響
+
+今日課程
+1. 影像合成
+2. 半透明矩形放文字
+3. 濾鏡
+4. opencv & pyqt5 秀圖程式

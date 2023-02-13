@@ -1,0 +1,12 @@
+setting\tools\external tools\add
+
+Program:
+venv\Scripts\pyuic5.exe
+
+Arguments :
+$FileName$ -o $FileNameWithoutExtension$.py
+
+Working directory :
+$ProjectFileDir$\ui
+
+.ui 右鍵 external tools

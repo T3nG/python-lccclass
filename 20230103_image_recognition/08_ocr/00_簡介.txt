@@ -1,0 +1,22 @@
+ref: http://mahaljsp.asuscomm.com/index.php/2019/09/24/python-ocr/
+https://digi.bib.uni-mannheim.de/tesseract/?C=M;O=D
+
+安裝好後可透過 cmd 執行
+
+path: D:\Program Files (x86)\Tesseract-OCR
+系統變數新增到PATH
+
+pip install pytesseract, pillow, opencv-python, numpy
+
+pytesseract 是 python套件, 會去調用 裝在系統中的 tesseract裡的函數庫
+但是有些套件在安裝時, 會自動安裝 dll函數庫, 比如 numpy
+(因 tesseract更新頻繁的緣故, 才要分開安裝)
+
+車牌辨識
+1. 偵測車牌位置: yolo
+2. 辨識車牌: ocr, 自行訓練(MNIST)
+
+AI辨識基礎知識
+http://mahaljsp.asuscomm.com/index.php/2020/09/21/visual_type/
+Dlib人臉偵測
+http://mahaljsp.asuscomm.com/index.php/2019/06/13/python_picture_facedetect/

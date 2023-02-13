@@ -31,6 +31,7 @@
     1. 系統級安裝
         pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
         pip install opencv-python matplotlib pyinstaller pyqt5
+        pip install -r requirements.txt
     2. 命令提示字元進入專案下
         E:\GitHub\python-lccclass\20221202_machine_learning\22_qt5_yolo7
         pyinstaller --hidden-import=queue -w -F ai.py
@@ -38,3 +39,11 @@
     4. 記得把 yolov7.pt 複製到 專案下產生的 dist中
     5. 檔案大小達到2.4G, 太大了, 無法執行
     PermissionError: [WinError 32] 程序無法存取檔案，因為檔案正由另一個程序使用。: 'E:\\GitHub\\python-lccclass\\20221202_machine_learning\\22_qt5_yolo7\\dist\\ai.exe.notanexecutable' -> 'E:\\GitHub\\python-lccclass\\20221202_machine_learning\\22_qt5_yolo7\\dist\\ai.exe'
+
+    Traceback (most recent call last):
+  File "ai.py", line 154, in <module>
+  File "ai.py", line 29, in __init__
+  File "utils\torch_utils.py", line 65, in select_device
+  File "utils\torch_utils.py", line 50, in date_modified
+  File "pathlib.py", line 1198, in stat
+FileNotFoundError: [WinError 3] 系統找不到指定的路徑。: 'C:\\Users\\User\\AppData\\Local\\Temp\\_MEI336962\\utils\\torch_utils.pyc'

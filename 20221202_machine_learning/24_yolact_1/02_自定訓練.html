@@ -1,0 +1,11 @@
+<!--
+以我們的圖片素材數量，訓練時間約 5.5小時
+
+weights/resnet50-19c8e357.pth 為空權重, 在此好像沒有什麼用處，但在 train.py 中，會去調用此權重，所以一定要放在
+weights目錄之下
+
+中斷訓練 : Ctrl+C : 中斷後，會在 weights下產生 yolact_base_xxx_xxx_interrupt.pth
+接續訓練 : python train.py --config=animal_config --resume=weights/yolact_base_xxx_xxx_interrupt.pth
+
+訓練好後，會在 weights下產生 yolact_base_3999_8000.pth
+-->

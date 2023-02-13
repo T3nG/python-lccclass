@@ -1,0 +1,126 @@
+ref: http://mahaljsp.asuscomm.com/index.php/2022/03/03/yolact/
+
+2023可能的變革
+1. Google搜尋引擎可能採用 AI人工智慧, 因受 ChatGPT的影響
+    ChatGPT有個資安全問題(傳言)
+2. PyTorch 使用率可能會高於 Tensorflow
+3. nVidia CUDA可能全面改版, 適用於AMD顯卡, 受到 PyTorch影響
+
+YOLACT特點
+1. 可以圈選不規則形狀的特徵
+2. 辨識速度快於 Yolov7
+    Yolov4約 1-3秒, Yolov7約 0.7秒, 依圖片解析度而定
+3. Yolact必須使用GPU運算, 沒有GPU則需使用 Colab
+
+安裝套件 labelme 是框選不規則用的
+    pip install numpy==1.21.6 imgviz labelme pycocotools pyqt5 opencv-python
+    pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+    labelme : 標示不規則形狀的工具
+    labelimg: 標示矩形形狀的工具
+
+訓練素材
+    http://mahaljsp.asuscomm.com/files/yolact_images.zip
+    將images 置於專案下 data中
+    往後要訓練的話, 將蒐集好的圖片放置於 data/images
+    但若是好幾十萬張圖, 可能要進行分類, 為了維護方便, 但須修改 labelme2coco.py 相應的存取檔案程式碼
+        data/images/cat
+        data/images/dog
+        ...
+
+Yolact原始碼
+    https://github.com/dbolya/yolact
+    將 yolact-master之內容複製到專案底下
+
+下載權重
+    https://drive.google.com/file/d/1Jy3yCdbatgXa5YYIdTCRrSV0S9V5g1rn/view
+    將 resnet50-19c8e357.pth放入專案下 weights
+
+標示圖片
+    系統級安裝 pip install labelme
+    cmd輸入 labelme 啟動
+
+    labelme
+        Open Dir
+        選擇專案下的 data/images
+        圈選好的圖片會生成同檔名的.json
+
+        標示方法
+        Create Polygons: ctrl + n
+        回到原點後, ctrl + s 存檔
+
+將labelme的格式轉為 coco格式
+    下載老師提供的 labelme2coco.py
+        labelme2coco github
+    修改 output_dir, input_dir, labels 三個變數的目錄
+    labelme2coco 標示多邊形使用 imgviz套件
+        所以也可以使用 opencv的 cv2.polylines() 函數重新改寫 labelme2coco.py
+
+    於 data下新增 label.txt
+        輸入以下內容
+        __ignore__
+        _background_
+        cat
+        dog
+        elephant
+        pig
+        tiger
+
+    執行 labelme2coco.py
+        data底下出現 output
+            JPEGImages        原始圖
+            Visualization     填滿顏色的圖
+            annotations.json  相關資料紀錄檔
+
+修改 data/config.py
+    108-129行程式碼, 複製, 貼到最後面
+        變數 dataset_base 改成 dataset_animal
+    656-704
+        變數 yolact_base_config 改成 animal_config
+
+下載空權重
+    resnet50-19c8e357.pth
+
+開始訓練
+    必須安裝 pip install opencv-python
+    訓練時會發生 RuntimeError: Expected a 'cuda' device type for generator but found 'cpu'
+        修改如下 train.py
+            data_loader參數 shuffle = False
+    官網是由 train.py開始訓練, 但因為太亂了, 自己寫 new_train.py
+    python train.py --config=animal_config --batch_size=2
+
+    訓練時間: RTX 3080ti 約 5.5小時
+    訓練完成後, 會在 weights下產生 yolact_base_7999_8000.pth 權重
+
+確認 environment.yml
+    dependencies
+    python == 3.7
+
+    numpy 要安裝 1.21.6 才可以訓練
+
+測試偵測圖片
+    將已訓練好的權重 http://mahaljsp.asuscomm.com/files/yolact/yolact_base_3999_8000.pth
+        置於 專案下 weights
+
+    找一張大象圖片, 命名為 elephant_4.jpg 至於專案下 data/test_img
+    於 Terminal 輸入以下指令
+    python eval.py --trained_model=weights/yolact_base_3999_8000.pth --config=animal_config --score_threshold=0.3 --top_k=100 --image=data/test_img/elephant_4.jpg
+
+python eval.py --trained_model=weights/yolact_base_3999_8000.pth --config=animal_config --score_threshold=0.3 --top_k=100 --image=data/test_img/tiger_4.png
+
+
+使用官方提供的權重 https://drive.google.com/file/d/1yp7ZbbDwvMiFJEq4ptVKTYTI2VeRDXl0/view
+    yolact_resnet50_54_800000.pth
+
+python eval.py --trained_model=weights/yolact_resnet50_54_800000.pth --config=yolact_resnet50_config --score_threshold=0.3 --top_k=100 --image=data/test_img/tiger_4.png
+
+
+中斷訓練 crtl + c : 在 weights底下生成xxx.pth
+接續訓練 python train.py --config=animal_config --batch_size=2 --resum weights\xxx.pth
+
+修改官網 train.py
+    todo
+修改官網 eval.py
+    todo
+
+    python train.py --config=animal_config --num_workers=0 --batch_size=4
+

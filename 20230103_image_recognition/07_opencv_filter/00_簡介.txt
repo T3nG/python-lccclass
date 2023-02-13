@@ -1,0 +1,9 @@
+ref: http://mahaljsp.asuscomm.com/index.php/2020/11/28/%e6%bf%be%e9%8f%a1/
+pip install opencv-python
+
+捲積
+0. 選定一點, 由中心點向外一圈(或多圈), 與 kernel相乘, 產生的值取代選定點的值 (RGB都需要乘)
+1. 最外圈是否也要捲積, 若要, 在整張圖的最邊緣再加一圈, 填 0進去
+2. kernel的大小也可以改變, 就有不同的效果
+3. stride步進值, 可設定每次捲積要進幾格
+4. kernel裡面的值, 不同的值, 捲積後產生的效果不同

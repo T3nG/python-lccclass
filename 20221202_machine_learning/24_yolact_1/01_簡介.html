@@ -1,0 +1,89 @@
+<!--
+2023可能的變革
+1. Google 搜索引擎可能採用 AI人工智慧 : 因受 ChatGPT的影響
+   ChatGPT有個資安全問題
+2. PyTorch 使用率可能會高於 Tensorflow
+3. nVidia CUDA可能全面改版，適用於AMD顯卡 : 受到 PyTorch的影響
+
+Yolact特點:
+1. 可以圈選不規則型狀的物件
+2. Yolact的辨識速度高於 Yolov7
+   Yolov4約需1-3秒,Yolov7約 0.7秒，依圖片解析度而定
+3. Yolact必需使用 GPU運算，沒GPU的人需使用 Colab
+
+訓練素材
+1. http://mahaljsp.asuscomm.com/files/yolact_images.zip
+   解壓後，將 image目錄置於專案中 data目錄之下
+   如果是自已的專案，將搜集到的圖片，全都放在 data\images之下，愈多張圖愈準
+
+   底下是為了維護，將不同種類放在不同的資料夾，但需修改label2coco.py檔
+   如果是好幾十萬張圖，可能要進行分類
+   data\images\cat
+   data\images\dog
+   data\images\tiger
+2. 安裝套件
+    #訓練模型時, numpy 必需使用 1.21.6
+    #否則 train.py 的 mode = random.choice(self.sample_options) 會出錯
+    #但 python 3.8 是安裝 1.24.1
+    #所以安裝套件的方式如下
+    #pip install numpy==1.21.6 imgviz labelme pycocotools pyqt5 opencv-python
+    #pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+    #以我們的圖片素材數量，訓練時間約 5.5小時
+
+   labelme : 標識不規則型狀的工具
+   labelimg : 標識矩型型狀的工具
+3. 下載 yolact 程式碼
+   a. https://github.com/dbolya/yolact
+   b. 解開壓縮檔後, 將 yolact-master 裹面所有的檔案及目錄, copy 到專案之下
+4. 訓練好的權重 : resnet50-19c8e357.pth，放到專案中 weights目錄之下
+   此訓練好的權重，本例沒有用到。但用法都一樣
+   網址如下 https://drive.google.com/file/d/1Jy3yCdbatgXa5YYIdTCRrSV0S9V5g1rn/view
+   備份網址 : http://mahaljsp.asuscomm.com/files/yolact/resnet50-19c8e357.pth
+5. 標識圖片 :
+   a. 系統級安裝 : 在 dos下執行 pip install labelme
+   b. 在dos下執行 : labelme
+   c. opendir : 專案\data\images
+   d. Create Polygons : Ctrl + N : 開始標識多邊型
+   c. Ctrl+S : 儲存 : 檔名同圖片, 副檔名為 .json
+6. 將 labelme的格式，轉為 coco格式
+   a. 新增 labelme2coco.py檔
+   b. 修改 output_dir, input_dir, labels三個變數的目錄
+   c. lableme2coco 標識多邊型使用 imgviz套件
+      所以也可以使用 opencv的cv2.polylines()函數重新改寫 labelme2coco.py
+7. data\label.txt
+   a. 在 data之下新增文字檔 : label.txt
+   b. 依序填入如下
+    __ignore__
+    _background_
+    cat
+    dog
+    elephant
+    pig
+    tiger
+8. 執行 labelme2coco.py
+    此時會在 data\output產生
+    JPEGImages : 原始圖
+    Visualization : 填滿顏色的圖
+    annotations.json : 相關資料記錄檔
+9. 修改 data\config.py
+    a. copy dataset_base變數 (108~129行)，貼到最後面, 並改成 animal_dataset
+    b. copy yolact_base_config(656-704行), 貼到最後面, 並改成 animal_config
+10. 訓練前的準備
+    a. 必需安裝 pip install opencv-python
+    b. 訓練時會發生 RuntimeError:Excepted a 'cuda' device type for generator but found 'cpu'
+       修改如下 train.py :
+       data_loader參數 shuffle=False
+11. 開始訓練 :
+    python train.py --config=animal_config
+    訓練時間 : RTX 3080ti 約 5.5小時
+    訓練完成，會在 weights下產生 yolact_base_7999_8000.pth權重
+    已訓練完成的權重 : http://mahaljsp.asuscomm.com/files/yolact/yolact_base_3999_8000.pth
+    請將 yolact_base_3999_8000.pth 置於 weights之下
+12. 偵測圖片:
+    python eval.py --trained_model=weights/yolact_base_3999_8000.pth --config=animal_config --score_threshold=0.3 --top_k=100 --image=test/elephant_01.jpg
+13. 修改官網 train.py(訓練)
+    todo
+14. 修改官網 eval.py(偵測)
+    todo
+    https://drive.google.com/file/d/1yp7ZbbDwvMiFJEq4ptVKTYTI2VeRDXl0/view?usp=sharing
+-->

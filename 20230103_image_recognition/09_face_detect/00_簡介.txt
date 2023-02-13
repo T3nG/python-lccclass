@@ -1,0 +1,31 @@
+https://drive.google.com/drive/folders/1mGEQXcaDKMn9nDS7WQmVxiN8sxW3fsQ6
+
+AI辨識基礎知識
+http://mahaljsp.asuscomm.com/index.php/2020/09/21/visual_type/
+Dlib人臉偵測
+http://mahaljsp.asuscomm.com/index.php/2019/06/13/python_picture_facedetect/
+
+
+人臉辨識以 Dlib最為精準, 需使用 CMake https://cmake.org/download/ 加到PATH
+安裝 visual studio 2019, (.net桌面, c++桌面, 通用windows平台開發)
+安裝好後重開 pycharm
+
+vs2019還沒裝好的話, dlib會裝不起來
+pip install matplotlib opencv_python dlib
+
+人臉辨識
+1. 人臉偵測
+2. 人臉辨識
+
+準備幾張有多個人臉的圖片, 與 .mp4
+
+常見問題
+    dlib 無法載入, 確認 VS2019已安裝 (2020或以上不行)
+    pip uninstall dlib
+    pip install dlib --no-cache-dir
+
+可以顯示出是否使用CUDA以及其他資訊 -v
+pip install -v dlib --no-cache-dir
+
+若 dlib.DLIB_USE_CUDA 為 False
+有可能 cuda沒裝, 且 dlib > 19.21.0, 或 CMake版本問題, 降版本試試 3.24 ~ 3.25

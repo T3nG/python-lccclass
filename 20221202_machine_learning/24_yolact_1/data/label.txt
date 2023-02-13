@@ -1,0 +1,7 @@
+__ignore__
+_background_
+cat
+dog
+elephant
+pig
+tiger

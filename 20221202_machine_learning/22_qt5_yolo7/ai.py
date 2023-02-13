@@ -71,9 +71,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         lbl_r = lbl_w / lbl_h
         # 原圖若比例過大, 則縮小, 反之放大, 使得以放入標籤lblShow中
         if r > lbl_r:
-            pix = pix.scaled(lbl_w, lbl_w / r)
+            pix = pix.scaled(lbl_w, int(lbl_w / r))
         else:
-            pix = pix.scaled(lbl_h * r, lbl_h)
+            pix = pix.scaled(int(lbl_h * r), lbl_h)
         self.lblShow.setPixmap(pix)
 
     def btnPathClick(self):
@@ -87,8 +87,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.picThread = PictureThread(self.path)
             self.picThread.callback.connect(self.showPicture)
             self.picThread.start()
-        else:
-            self.lblPath.setText(self.path)
 
     def closeEvent(self, event):
         self.picThread.runFlag = False
