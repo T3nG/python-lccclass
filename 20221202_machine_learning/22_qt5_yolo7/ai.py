@@ -55,8 +55,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def btnPictureClick(self, tag):
         btn = self.sender()
+        file_path = btn.tag.replace('\\', '/')
         # self.detect請參照官網的程式碼
-        img = self.detect(btn.tag, self.model, self.stride, self.device)
+        img = self.detect(file_path, self.model, self.stride, self.device)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         # 將 cv2格式轉成 QImage, 再轉成 QPixmap才可放入 QLabel中, 寬 高 RGB, 8bit顏色值
         pix = QPixmap(QImage(

@@ -161,7 +161,9 @@ class LoadImages:  # for inference
     def __next__(self):
         if self.count == self.nf:
             raise StopIteration
-        path = self.files[self.count]
+        # path = self.files[self.count]
+        # Ivan 20230214
+        path = self.files[self.count].replace('\\', '/')
 
         if self.video_flag[self.count]:
             # Read video
@@ -185,7 +187,7 @@ class LoadImages:  # for inference
             self.count += 1
             # img0 = cv2.imread(path)  # BGR
             # Ivan20230119 使檔案名稱可包含中文
-            img0 = cv2.imdecode(np.fromfile(path), cv2.IMREAD_UNCHANGED)
+            img0 = cv2.imdecode(np.fromfile(path, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
             assert img0 is not None, 'Image Not Found ' + path
             #print(f'image {self.count}/{self.nf} {path}: ', end='')
 

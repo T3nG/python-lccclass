@@ -1,0 +1,2 @@
+ref: http://mahaljsp.asuscomm.com/index.php/2019/06/14/python_face_match/
+pip install opencv-python dlib matplotlib pillow
